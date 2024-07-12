@@ -4,6 +4,8 @@ if [ -z ${OVH_DOMAIN+x} ]; then echo "Variable OVH_DOMAIN is unset"; exit 1; fi
 if [ -z ${OVH_USER+x} ]; then echo "Variable OVH_USER is unset"; exit 1; fi
 if [ -z ${OVH_PASSWORD+x} ]; then echo "Variable OVH_PASSWORD is unset"; exit 1; fi
 
+WAIT_TIME="${WAIT_TIME:-60}"
+
 while true
 do
 	# Get the current registered IP
@@ -21,5 +23,5 @@ do
 	else
 		echo "No need to update the IP"
 	fi
-	sleep 1
+	sleep $WAIT_TIME
 done
