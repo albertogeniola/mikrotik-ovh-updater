@@ -9,7 +9,7 @@ WAIT_TIME="${WAIT_TIME:-60}"
 while true
 do
 	# Get the current registered IP
-	nslookup -type=a $OVH_DOMAIN resolver1.opendns.com | awk -F': ' 'NR==6 { print $2 } '
+	nslookup -type=a $OVH_DOMAIN resolver1.opendns.com
 	OLD_IP=$(nslookup -type=a $OVH_DOMAIN resolver1.opendns.com | awk -F': ' 'NR==6 { print $2 } ')
 	echo "OLD_IP: $OLD_IP"
 
